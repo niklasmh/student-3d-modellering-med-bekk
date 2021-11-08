@@ -34,6 +34,9 @@ hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
 # Lage selve kula
+
+""" ⬇ SKRIV KODE HER ⬇ """
+
 kule = sphere(r*0)
 
 punkter = []
@@ -49,6 +52,8 @@ for (vinkel1, vinkel2) in zip(linspace(0, pi, n), linspace(0, pi / 2, n)):
 
 for vinkel in linspace(0, 360, 10):
     kule += rotate([0, 0, vinkel])(kurve(punkter, 0.3*cm, 5))
+
+""" ⬆ SKRIV KODE HER ⬆ """
 
 
 # Sette sammen hanken og julekula

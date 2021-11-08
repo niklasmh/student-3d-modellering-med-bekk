@@ -34,7 +34,13 @@ hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
 # Lage selve kula
-kule = sphere(r*1)
+
+""" ⬇ SKRIV KODE HER ⬇ """
+
+kule = sphere(r)
+
+""" ⬆ SKRIV KODE HER ⬆ """
+
 
 # Sette sammen hanken og julekula
 julekule = hanke + kule
