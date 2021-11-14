@@ -14,13 +14,13 @@ z = 0.01  # Fikse z-fighting
 fn = 16  # Punkter i en sirkel (jo fler punkter jo finere, men krever mer CPU)
 
 # Konstanter og funksjoner
-r = 4*cm  # Radius på julekula
-r_hanke = 0.5*cm  # Radius på hanken
+r = 2.5*cm  # Radius på julekula
+r_hanke = 0.25*cm  # Radius på hanken
 b_hanke = r_hanke * 0.4  # Bredden på hanken
 
 
-def torus(radius, bredde):
-    return rotate_extrude(360)(translate([radius, 0, 0])(circle(bredde)))
+def torus(radius, bredde, detaljer=10):
+    return rotate_extrude(360, segments=detaljer)(translate([radius, 0, 0])(circle(bredde, segments=detaljer)))
 
 
 def kurve(punkter, bredde=1*cm, detaljer=fn):
@@ -94,7 +94,8 @@ punkter, faces = bilde_til_sfæriske_punkter(
     radius=r,
     antall_x=48,
     antall_y=32,
-    piksel_til_høyde=lambda piksel: 1 + min(0.05, piksel[0] / 200)
+    piksel_til_høyde=lambda piksel: 1.05 +
+    piksel[0] / 2000 if piksel[0] > 1 else 1
 )
 kule += polyhedron(punkter, faces)
 

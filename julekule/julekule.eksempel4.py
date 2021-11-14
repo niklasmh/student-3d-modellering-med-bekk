@@ -52,6 +52,8 @@ for (vinkel1, vinkel2) in zip(linspace(0, pi, n), linspace(0, pi / 2, n)):
 
 for vinkel in linspace(0, 360, 10):
     kule += rotate([0, 0, vinkel])(kurve(punkter, 0.3*cm, 5))
+    kule += rotate([0, 0, vinkel])(scale([1, 1, -1])
+                                   (kurve(punkter, 0.3*cm, 5)))
 
 """ ⬆ SKRIV KODE HER ⬆ """
 

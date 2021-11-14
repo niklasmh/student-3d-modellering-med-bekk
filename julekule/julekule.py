@@ -11,13 +11,13 @@ z = 0.01  # Fikse z-fighting
 fn = 32  # Punkter i en sirkel (jo fler punkter jo finere, men krever mer CPU)
 
 # Konstanter og funksjoner
-r = 4*cm  # Radius på julekula
-r_hanke = 0.5*cm  # Radius på hanken
+r = 2.5*cm  # Radius på julekula
+r_hanke = 0.25*cm  # Radius på hanken
 b_hanke = r_hanke * 0.4  # Bredden på hanken
 
 
-def torus(radius, bredde):
-    return rotate_extrude(360)(translate([radius, 0, 0])(circle(bredde)))
+def torus(radius, bredde, detaljer=10):
+    return rotate_extrude(360, segments=detaljer)(translate([radius, 0, 0])(circle(bredde, segments=detaljer)))
 
 
 def kurve(punkter, bredde=1*cm, detaljer=fn):

@@ -7,8 +7,8 @@ mm = 1  # Gjøre om til millimeter (f.eks. er 5*mm = 5mm)
 cm = 10  # Gjøre om til centimeter (f.eks. er 5*cm = 5cm)
 deg2rad = pi / 180
 rad2deg = 180 / pi
-z = 0.01  # Fikse z-fighting
-fn = 10  # Punkter i en sirkel (jo fler punkter jo finere, men krever mer CPU)
+z = 0.05  # Fikse z-fighting
+fn = 32  # Punkter i en sirkel (jo fler punkter jo finere, men krever mer CPU)
 
 # Konstanter og funksjoner
 r = 2.5*cm  # Radius på julekula
@@ -20,14 +20,6 @@ def torus(radius, bredde, detaljer=10):
     return rotate_extrude(360, segments=detaljer)(translate([radius, 0, 0])(circle(bredde, segments=detaljer)))
 
 
-def kurve(punkter, bredde=1*cm, detaljer=fn):
-    dott = sphere(bredde / 2, segments=detaljer)
-    model = translate(punkter[0])(dott)
-    for (punkt1, punkt2) in zip(punkter, punkter[1:]):
-        model += hull()(translate(punkt1)(dott), translate(punkt2)(dott))
-    return model
-
-
 # Lage hanke å tre tråd gjennom
 hanke = torus(r_hanke, b_hanke)
 hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
@@ -37,27 +29,30 @@ hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
 """ ⬇ SKRIV KODE HER ⬇ """
 
-kule = sphere(r*0)
+kube = cube(r*2)
+kube = translate([-r, -r, -r])(kube)
 
-punkter = []
-n = fn
-for (vinkel1, vinkel2) in zip(linspace(0, pi, n), linspace(0, pi / 2, n)):
-    rad1 = vinkel1
-    rad2 = vinkel2
-    bredde = r*sin(rad1)
-    x = bredde * sin(rad2)
-    y = bredde * cos(rad2)
-    z = r*cos(rad1)
-    punkter.append([x, y, z])
+w = .5*cm  # Kube-kant-bredde
+kube_hull = cube([r*2 - w*2, r*2 - w*2, r*2 + z*2])
+kube_hull = translate([w - r, w - r, -z - r])(kube_hull)
 
-for vinkel in linspace(0, 360, 10):
-    kule += rotate([0, 0, vinkel])(kurve(punkter, 0.3*cm, 5))
+kube -= kube_hull
+kube -= rotate([90, 0, 0])(kube_hull)
+kube -= rotate([0, 90, 0])(kube_hull)
+
+kube = rotate([45, atan(1 / sqrt(2)) * rad2deg, 0])(kube)
+kube_topp = sqrt(3*r**2) - r - b_hanke
+kube = translate([0, 0, -kube_topp])(kube)
+
+
+ball = sphere(r)
+ball = translate([0, 0, -kube_topp])(ball)
 
 """ ⬆ SKRIV KODE HER ⬆ """
 
 
 # Sette sammen hanken og julekula
-julekule = hanke + kule
+julekule = hanke + kube + ball
 
 
 # Skrive ut til en .scad-fil
