@@ -3,6 +3,7 @@
 Her kan du finne noen eksempler på hva du kan lage.
 
 - [/julekule](julekule)
+- [/vase](vase)
 
 ## Verktøy
 
