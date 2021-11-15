@@ -91,3 +91,5 @@ scad_render_to_file(bunn, __file__[:-3] + ".boks.scad",
                     file_header='$fn = %d;' % fn)
 scad_render_to_file(lokk, __file__[:-3] + ".lokk.scad",
                     file_header='$fn = %d;' % fn)
+scad_render_to_file(bunn + lokk, __file__[:-3] + ".sammensatt.scad",
+                    file_header='$fn = %d;' % fn)
