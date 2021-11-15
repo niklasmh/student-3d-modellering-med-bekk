@@ -1,12 +1,14 @@
 # Jeg vil printe ut
 
+Du må fylle ut alle feltene for at vi skal printe ut 3D-modellen.
+
 ## ID
 
 Min identifikator er: XXXXXXXX (slik at du finner din print når alle er ferdig)
 
 ## Farge
 
-Jeg vil printe ut i denne fargen:
+Jeg vil printe ut i denne fargen (sett en "x" i boksen på fargen du ønsker):
 
 - [ ] Rød
 - [ ] Grønn (lime)
