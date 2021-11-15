@@ -2,6 +2,8 @@
 
 Dette er en workshop designet for å gi en innføring i hvordan man kan bruke programmering til å lage 3D-modeller - som også er mulig å 3D-printe.
 
+For å få 3D-modellen printet ut må du lage en PR. Dette kan blant annet gjøres med å gå inn på [`print-ut-denne.py`](print-ut-denne.py)-filen og følge instruksene.
+
 ## Verktøy
 
 - [VSCode](https://code.visualstudio.com/) (Anbefalt)
