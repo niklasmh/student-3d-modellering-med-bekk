@@ -37,7 +37,7 @@ npm install -g nodemon # For å få auto-refresh på 3D-modellen
 
    Husk å naviger til riktig mappe (altså hit denne readme'en er). I VSCode skal dette skje automatisk.
 
-2. Neste steg er å åpne OpenSCAD og åpne `.scad`-filen som nå ble generert. _Når du gjør kode endringer nå vil du se 3D-modellen med en gang. Dette er supernyttig om man skal kode 3D-modeller!_
+2. Neste steg er å åpne OpenSCAD og åpne `.scad`-filen som nå ble generert. _Når du gjør kodeendringer nå vil du se endringene på 3D-modellen med en gang. Dette er supernyttig om man skal kode 3D-modeller!_
 
 3. (Anbefalt) Plasser vinduene ved siden av hverandre, slik:
    ![Kodemiljø](https://user-images.githubusercontent.com/8504538/141381286-7e681745-31bb-47b6-8467-7f6b9853dbf9.png)
