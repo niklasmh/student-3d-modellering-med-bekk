@@ -1,6 +1,6 @@
 # 3D-modellering workshop med Bekk (for studenter)
 
-Dette er en workshop designet for å få en innføring i hvordan man kan bruke programmering til å lage 3D-modeller - som også er mulig å 3D-printe.
+Dette er en workshop designet for å gi en innføring i hvordan man kan bruke programmering til å lage 3D-modeller - som også er mulig å 3D-printe.
 
 ## Verktøy
 
