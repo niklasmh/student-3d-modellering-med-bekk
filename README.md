@@ -1,17 +1,6 @@
-# 3D-modellering med Bekk (for studenter)
+# 3D-modellering workshop med Bekk (for studenter)
 
-Her kan du finne noen eksempler på hva du kan lage:
-
-- [/julekule](julekule)  
-  <img src="https://user-images.githubusercontent.com/8504538/141822348-9a3c55de-824e-4b6c-9253-252dbc959114.png" height="240px" />
-
-- [/vase](vase)  
-  <img src="https://user-images.githubusercontent.com/8504538/141823363-98f9e12a-91a9-4199-bbc7-ea583f4a00fd.png" height="240px" />
-
-- [/boks](boks)  
-  <img src="https://user-images.githubusercontent.com/8504538/141859168-d8f5bd3e-39e9-492f-a094-16a8ddb9da5b.png" height="240px" />
-
-- Ellers finnes det masse på [Thingiverse](https://www.thingiverse.com/)!
+Dette er en workshop designet for å få en innføring i hvordan man kan bruke programmering til å lage 3D-modeller - som også er mulig å 3D-printe.
 
 ## Verktøy
 
@@ -45,3 +34,18 @@ npm install -g nodemon # For å få auto-refresh på 3D-modellen
 
 3. (Anbefalt) Plasser vinduene ved siden av hverandre, slik:
    ![Kodemiljø](https://user-images.githubusercontent.com/8504538/141381286-7e681745-31bb-47b6-8467-7f6b9853dbf9.png)
+
+## Inspirasjon / Eksempler
+
+Her kan du finne noen eksempler på hva du kan lage:
+
+- [/julekule](julekule)  
+  <img src="https://user-images.githubusercontent.com/8504538/141822348-9a3c55de-824e-4b6c-9253-252dbc959114.png" height="240px" />
+
+- [/vase](vase)  
+  <img src="https://user-images.githubusercontent.com/8504538/141823363-98f9e12a-91a9-4199-bbc7-ea583f4a00fd.png" height="240px" />
+
+- [/boks](boks)  
+  <img src="https://user-images.githubusercontent.com/8504538/141859168-d8f5bd3e-39e9-492f-a094-16a8ddb9da5b.png" height="240px" />
+
+- Ellers finnes det masse på [Thingiverse](https://www.thingiverse.com/)!
