@@ -5,6 +5,10 @@ Her kan du finne noen eksempler på hva du kan lage.
 - [/julekule](julekule)
 - [/vase](vase)
 
+
+<img src="https://user-images.githubusercontent.com/8504538/141822348-9a3c55de-824e-4b6c-9253-252dbc959114.png" height="240px" />
+
+
 ## Verktøy
 
 - [VSCode](https://code.visualstudio.com/) (Anbefalt)
