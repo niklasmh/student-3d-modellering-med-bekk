@@ -1,13 +1,16 @@
 # 3D-modellering med Bekk (for studenter)
 
-Her kan du finne noen eksempler på hva du kan lage.
+Her kan du finne noen eksempler på hva du kan lage:
 
 - [/julekule](julekule)
-- [/vase](vase)
-
-
 <img src="https://user-images.githubusercontent.com/8504538/141822348-9a3c55de-824e-4b6c-9253-252dbc959114.png" height="240px" />
 
+- [/vase](vase)
+<img src="https://user-images.githubusercontent.com/8504538/141823363-98f9e12a-91a9-4199-bbc7-ea583f4a00fd.png" height="240px" />
+
+- [/boks](boks)
+
+- Ellers finnes det masse på [Thingiverse](https://www.thingiverse.com/)!
 
 ## Verktøy
 
