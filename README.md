@@ -51,3 +51,13 @@ Her kan du finne noen eksempler på hva du kan lage:
   <img src="https://user-images.githubusercontent.com/8504538/141859168-d8f5bd3e-39e9-492f-a094-16a8ddb9da5b.png" height="240px" />
 
 - Ellers finnes det masse på [Thingiverse](https://www.thingiverse.com/)!
+
+# Feilsøking
+
+## pip3 install solidpython feiler med "unknown architecture" på os x 10.5
+
+Fortell pip3 hvilken arkitektur den skal bygge for
+
+`ARCHFLAGS="-arch x86_64" pip3 install solidpython`
+
+https://stackoverflow.com/questions/64252434/architecture-not-supported-error-when-installing-nltk-with-pip-on-mac
