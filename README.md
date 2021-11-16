@@ -28,6 +28,8 @@ npm install -g nodemon # For å få auto-refresh på 3D-modellen
    nodemon julekule/julekule.py
    # Eller
    nodemon --exec python3 julekule/julekule.py # om du bruker python 2
+   # Eller (på mac/linux)
+   while true; do python3 julekule/julekule.py; sleep 2; done
    ```
 
    Husk å naviger til riktig mappe (altså hit denne readme'en er). I VSCode skal dette skje automatisk.
