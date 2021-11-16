@@ -15,8 +15,15 @@ r = 2.5*cm  # Radius på vasen
 
 
 """ ⬇ SKRIV KODE HER ⬇ """
+"""
+Oppskrift på vase med spiral-søyler:
+1. Lage en fasong/form som en funksjon
+2. Rotere denne formen i en sirkel
+3. Legge til en spiral-søyle langs formen på søyla
+4. Kopiere spiral-søylene rundt vasen x-antall ganger
+"""
 
-
+# 1.
 def vase_form_funksjon(x):
     y = r * 0.3
     sc_x = sqrt(x + 3) * 9
@@ -36,10 +43,12 @@ for y in linspace(0, 10*cm, steg):
 for [x, y] in form_på_vase[:2:-1]:
     form_på_vase.append([x - tykkelse, y])
 
+# 2.
 vase = polygon(form_på_vase)  # Lage formen som en shape
 vase = rotate_extrude()(vase)  # Rotere formen rundt z-aksen
 
 # Legge til mønster på vasen
+# 3.
 punkter = []
 for z in linspace(0, 10*cm, steg):
     radius = vase_form_funksjon(z)
@@ -51,6 +60,8 @@ for z in linspace(0, 10*cm, steg):
 t = 0.2*cm
 mønster = extrude_along_path(
     [[t / 2, -t], [t / 2, t], [-t / 2, t / 2]], punkter)
+
+# 4.
 for rot in linspace(0, 360, 10):
     vase += rotate([0, 0, rot])(mønster)
 

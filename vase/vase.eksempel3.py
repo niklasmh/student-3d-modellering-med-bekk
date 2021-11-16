@@ -15,7 +15,13 @@ r = 2.5*cm  # Radius på vasen
 
 
 """ ⬇ SKRIV KODE HER ⬇ """
-
+"""
+Oppskrift på vase:
+1. Lage en bunnform
+2. Bygg opp vasen lagvis langs noen punkter
+3. Legg på rotasjon og skalering på hvert av punktene
+4. Lage en bunnform separat fordi de ikke kan legges sammen grunnet noen bugs (Kan legge de sammen senere i 3D-printing-prosessen)
+"""
 
 def vase_form_funksjon(x):
     y = r * 0.3
@@ -24,6 +30,7 @@ def vase_form_funksjon(x):
     return y
 
 # Lage bunnformen på vasen
+# 1.
 bunnform_på_vase_utside = []
 bunnform_på_vase_innside = []
 for rad in linspace(0, 2.002*pi, 49, endpoint=True): # 2.002 fordi en bug i sliceren
@@ -36,6 +43,7 @@ for rad in linspace(0, 2.002*pi, 49, endpoint=True): # 2.002 fordi en bug i slic
 bunnform_på_vase = bunnform_på_vase_utside + bunnform_på_vase_innside[::-1]
 
 # Reise opp vasen fra bunnformen, og legge på skalering og rotasjon
+# 2. og 3.
 punkter = [[0, 0, 0]]
 skalering = [0]
 rotasjon = []
@@ -52,6 +60,7 @@ skalering = skalering[:-1]
 vase = extrude_along_path(bunnform_på_vase, punkter, scales=skalering, rotations=rotasjon)
 
 # Legge til bunn på vasen
+# 4.
 bunn = polygon(bunnform_på_vase_utside)
 bunn = linear_extrude(height=0.2*cm)(bunn)
 

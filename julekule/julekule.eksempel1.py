@@ -28,17 +28,23 @@ def kurve(punkter, bredde=1*cm, detaljer=fn):
     return model
 
 
-# Lage hanke å tre tråd gjennom
+""" ⬇ SKRIV KODE HER ⬇ """
+"""
+Oppskrift på julekule som er laget av et mønster:
+1. Lage hanke å tre tråd gjennom
+2. Lage selve kula
+3. Legge til masse mønster
+"""
+
+# 1. Lage hanke å tre tråd gjennom
 hanke = torus(r_hanke, b_hanke)
 hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
-# Lage selve kula
+# 2. Lage selve kula
+kule = sphere(0) # Lager et tomt objekt som vi kan bygge på
 
-""" ⬇ SKRIV KODE HER ⬇ """
-
-kule = sphere(r*0)
-
+# 3. Legge til masse mønster
 punkter = []
 n = fn
 for (vinkel1, vinkel2) in zip(linspace(0, pi, n), linspace(0, pi / 2, n)):

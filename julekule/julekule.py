@@ -28,15 +28,19 @@ def kurve(punkter, bredde=1*cm, detaljer=fn):
     return model
 
 
-# Lage hanke å tre tråd gjennom
+""" ⬇ SKRIV KODE HER ⬇ """
+"""
+Oppskrift på en helt rund julekule:
+1. Lage hanke å tre tråd gjennom
+2. Lage selve kula
+"""
+
+# 1. Lage hanke å tre tråd gjennom
 hanke = torus(r_hanke, b_hanke)
 hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
-# Lage selve kula
-
-""" ⬇ SKRIV KODE HER ⬇ """
-
+# 2. Lage selve kula
 kule = sphere(r)
 
 """ ⬆ SKRIV KODE HER ⬆ """

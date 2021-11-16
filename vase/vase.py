@@ -15,8 +15,13 @@ r = 2.5*cm  # Radius på vasen
 
 
 """ ⬇ SKRIV KODE HER ⬇ """
+"""
+Oppskrift på vase:
+1. Lage en fasong/form som en funksjon (vase_form_funksjon)
+2. Rotere denne formen i en sirkel
+"""
 
-
+# 1.
 def vase_form_funksjon(x):
     y = r * 0.3
     sc_x = sqrt(x + 3) * 9
@@ -36,6 +41,7 @@ for y in linspace(0, 10*cm, steg):
 for [x, y] in form_på_vase[:2:-1]:
     form_på_vase.append([x - tykkelse, y])
 
+# 2.
 vase = polygon(form_på_vase)  # Lage formen som en shape
 vase = rotate_extrude()(vase)  # Rotere formen rundt z-aksen
 

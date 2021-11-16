@@ -20,15 +20,14 @@ def torus(radius, bredde, detaljer=10):
     return rotate_extrude(360, segments=detaljer)(translate([radius, 0, 0])(circle(bredde, segments=detaljer)))
 
 
-# Lage hanke å tre tråd gjennom
+""" ⬇ SKRIV KODE HER ⬇ """
+
+# 1. Lage hanke å tre tråd gjennom
 hanke = torus(r_hanke, b_hanke)
 hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
-# Lage selve kula
-
-""" ⬇ SKRIV KODE HER ⬇ """
-
+# 2. Lage en kube med kanter
 kube = cube(r*2)
 kube = translate([-r, -r, -r])(kube)
 
@@ -44,7 +43,7 @@ kube = rotate([45, atan(1 / sqrt(2)) * rad2deg, 0])(kube)
 kube_topp = sqrt(3*r**2) - r - b_hanke
 kube = translate([0, 0, -kube_topp])(kube)
 
-
+# 3. Lage en kule som er plassert inni kuben
 ball = sphere(r)
 ball = translate([0, 0, -kube_topp])(ball)
 

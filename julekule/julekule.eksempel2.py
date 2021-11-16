@@ -73,22 +73,30 @@ def bilde_til_sfæriske_punkter(bilde, radius=r, antall_x=20, antall_y=10, pikse
     return nye_punkter, faces
 
 
-# Lage hanke å tre tråd gjennom
+""" ⬇ SKRIV KODE HER ⬇ """
+"""
+Oppskrift på julekule med bilde på:
+1. Lage hanke å tre tråd gjennom
+2. Lage selve kula
+3. Legge til et bilde (fra disk eller URL)
+4. Bruke bildet til å lage en kule med forhøyninger
+"""
+
+# 1. Lage hanke å tre tråd gjennom
 hanke = torus(r_hanke, b_hanke)
 hanke = rotate([0, 90, 0])(hanke)  # Rotere 90 grader om y-aksen
 hanke = translate([0, 0, r + r_hanke])(hanke)  # Flytte langs z-aksen
 
-# Lage selve kula
-
-""" ⬇ SKRIV KODE HER ⬇ """
-
+# 2. Lage selve kula
 kule = sphere(r*0)
 
-# Hente bilde fra maskinen:
+# 3. Legge til et bilde (fra disk eller URL)
+# Fra disk:
 bilde = Image.open('julekule/earth-heightmap.png')
-# Hente bilde fra URL:
+# Fra URL:
 #bilde = Image.open(requests.get('', stream=True).raw)
 
+# 4. Bruke bildet til å lage en kule med forhøyninger
 punkter, faces = bilde_til_sfæriske_punkter(
     bilde,
     radius=r,
@@ -97,7 +105,7 @@ punkter, faces = bilde_til_sfæriske_punkter(
     piksel_til_høyde=lambda piksel: 1.05 +
     piksel[0] / 2000 if piksel[0] > 1 else 1
 )
-kule += polyhedron(punkter, faces)
+kule += polyhedron(punkter, faces) # Generere den faktisk modellen bestående av punkter og overflater (faces)
 
 
 """ ⬆ SKRIV KODE HER ⬆ """
