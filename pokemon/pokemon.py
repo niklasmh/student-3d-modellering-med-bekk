@@ -68,7 +68,7 @@ def pokemon_face(width=1*cm, details=30, trans=[0, 0, 0]):
     return face
 
 
-def pokemon_body(width=1*cm, details=30, z=1.2):
+def pokemon_torso(width=1*cm, details=30, z=1.2):
     body = sphere(width / 2, segments=details*5)
     body = scale(v=[2, 1.7, z])(body)
     body = translate([0, 0, width*z/2-8])(body)
@@ -114,12 +114,17 @@ def pokemon_hat(r=12*cm, h=2*cm, w=3*mm, details=30):
 
 
 def pokemon():
-    pokemon = pokemon_body(width=10*cm, details=dets)
+    pokemon = pokemon_body()
+    pokemon += translate([0, 0, 10*cm-8])(pokemon_hat(details=dets))
+    return pokemon
+
+
+def pokemon_body():
+    pokemon = pokemon_torso(width=10*cm, details=dets)
     top = cylinder(10*cm, 4*cm)
     top = translate([0, 0, 10*cm-8])(top)
 
     pokemon -= top
-    # pokemon += translate([0, 0, 10*cm-8])(pokemon_hat(details=dets))
 
     # right legs
     pokemon += translate([4.5*cm, 6*cm, 9*mm])(pokemon_leg(x=0, y=0,
@@ -136,18 +141,22 @@ def pokemon():
                                                          z=0, radius=1.3*cm, rotate_angles=[0, -45, -90], details=dets))
     pokemon += translate([-4.5*cm, -6*cm, 9*mm])(pokemon_leg(x=0, y=0,
                                                              z=0, radius=1.3*cm, rotate_angles=[15, -45, -90], details=dets))
+    bottom = cylinder(10*cm, 2*cm)
+    bottom = translate([0, 0, -2*cm])(bottom)
+
+    pokemon -= bottom
     return pokemon
 
 
 pokemonf = pokemon()
+# Skrive ut til en .scad-fil
+scad_render_to_file(pokemonf, "pokemon" + ".scad",
+                    file_header='$fn = %d;' % fn)
 
-bottom = cylinder(10*cm, 2*cm)
-bottom = translate([0, 0, -2*cm])(bottom)
-
-pokemonf -= bottom
+pokemonf = pokemon_body()
+scad_render_to_file(pokemonf, "pokemonbody" + ".scad",
+                    file_header='$fn = %d;' % fn)
 
 pokemonf = pokemon_hat(details=dets)
-
-# Skrive ut til en .scad-fil
 scad_render_to_file(pokemonf, "pokemonhat" + ".scad",
                     file_header='$fn = %d;' % fn)
