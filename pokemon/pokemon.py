@@ -148,15 +148,15 @@ def pokemon_body():
     return pokemon
 
 
-pokemonf = pokemon()
+pokemon_ = scale([0.51, 0.51, 0.51])(pokemon())
 # Skrive ut til en .scad-fil
-scad_render_to_file(pokemonf, "pokemon" + ".scad",
+scad_render_to_file(pokemon_, "pokemon" + ".scad",
                     file_header='$fn = %d;' % fn)
 
-pokemonf = pokemon_body()
-scad_render_to_file(pokemonf, "pokemonbody" + ".scad",
+pokemon_body = scale([0.51, 0.51, 0.51])(pokemon_body())
+scad_render_to_file(pokemon_body, "pokemonbody" + ".scad",
                     file_header='$fn = %d;' % fn)
 
-pokemonf = pokemon_hat(details=dets)
-scad_render_to_file(pokemonf, "pokemonhat" + ".scad",
+pokemon_hat = scale([0.51, 0.51, 0.51])(pokemon_hat(details=dets))
+scad_render_to_file(pokemon_hat, "pokemonhat" + ".scad",
                     file_header='$fn = %d;' % fn)
